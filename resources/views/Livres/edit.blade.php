@@ -15,18 +15,18 @@
         <div class="form-group">
             <label for="exampleFormControlSelect1">Catégorie</label>
           
-             <select name="IdCategorie" class="form-control">
+            <select name="IdCategorie" class="form-control">
                 @foreach ($categories as $item)
                 <option @selected($item->id == $livre->IdCategorie)
                     value="{{ $item->id }}">{{ $item->Libelle }}</option>
                 @endforeach
-        </select>
+            </select>
 
         </div>
 
 
         <label>Date Parution</label>       
-        <input type="text" name="DateParution" id="DateParution" value="{{ date('d/m/Y',strtotime($livre->DateParution))}}" class="form-control">
+        <input type="date" name="DateParution" id="DateParution" value="{{ date('Y-m-d',strtotime($livre->DateParution))}}" class="form-control">
       
         <input type="submit" value="Enregistrer" class="btn btn-success">
         <a href="{{ url('livres') }}" class="btn btn-danger" role="button" aria-pressed="true">Annuler</a>

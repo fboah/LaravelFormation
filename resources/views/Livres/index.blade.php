@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body">
                         <a href="{{ url('/livres/create') }}" class="btn btn-success btn-sm" title="Ajouter un Nouveau Livre">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Ajouter un Nouveau Livre
+                            <i class="fa fa-plus" aria-hidden="true"></i> Ajouter une Nouveau Livre
                         </a>
                         <br/>
                         <br/>
@@ -38,12 +38,12 @@
  
                                         <td>
                                            
-                                            <a href="{{ url('/livres/' . $item->id . '/edit') }}" title="Modifier Livre"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </button></a>
+                                            <a href="{{ url('/livres/' . $item->id . '/edit') }}" title="Modifier Oeuvre"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </button></a>
  
                                             <form method="POST" action="{{ url('/livres' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Supprimer Livre" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> </button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Supprimer Oeuvre" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> </button>
                                             </form>
                                         </td>
                                     </tr>

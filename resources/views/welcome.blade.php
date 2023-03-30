@@ -70,6 +70,10 @@
                    
                    </li>
 
+                   <li><a href="{{ url('/auteurs') }}" ><i class="ti-user"></i> Auteur </a>
+                   
+                   </li>
+
                     
 
 
@@ -111,12 +115,6 @@
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="uc-calendar.html">Calendar</a></li>
-                            <li><a href="uc-carousel.html">Carousel</a></li>
-                            <li><a href="uc-weather.html">Weather</a></li>
-                            <li><a href="uc-datamap.html">Datamap</a></li>
-                            <li><a href="uc-todo-list.html">To do</a></li>
-                            <li><a href="uc-scrollable.html">Scrollable</a></li>
-                            <li><a href="uc-sweetalert.html">Sweet Alert</a></li>
                             <li><a href="uc-toastr.html">Toastr</a></li>
                             <li><a href="uc-range-slider-basic.html">Basic Range Slider</a></li>
                             <li><a href="uc-range-slider-advance.html">Advance Range Slider</a></li>

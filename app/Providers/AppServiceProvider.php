@@ -29,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
         $nblivres = DB::table('livres')->count();
         View::share('nblivres', $nblivres);
 
+        $nbauteurs = DB::table('auteurs')->count();
+        View::share('nbauteurs', $nbauteurs);
+
        // $nblivres = DB::table('livres')
         //->select('count(*) as nblivres')
         //->get();

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\AuteurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::get('/accueil',[TestController::class,'accueil']);
 Route::resource("/livres", LivreController::class);
 
 Route::resource("/categories", CategorieController::class);
+
+Route::resource("/auteurs", AuteurController::class);
 
 //Route::resource("/", WelcomeController::class);
 

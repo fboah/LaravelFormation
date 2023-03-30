@@ -44,8 +44,8 @@
                                     <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">New Customer</div>
-                                        <div class="stat-digit">961</div>
+                                        <div class="stat-text">Auteurs</div>
+                                        <div class="stat-digit">{{$nbauteurs}}</div>
                                     </div>
                                 </div>
                             </div>
