@@ -6,8 +6,9 @@
   <div class="card-header">Ajouter un Auteur</div>
   <div class="card-body">
       
-      <form action="{{ url('/auteurs') }}" method="post">
-        {!! csrf_field() !!}
+      <form action="{{ url('/auteurs') }}" method="post"  enctype="multipart/form-data">>
+      
+        @csrf
         <label>Nom</label>
         <input type="text" name="Nom" id="Nom" class="form-control">
 

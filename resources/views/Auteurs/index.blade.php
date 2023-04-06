@@ -41,7 +41,7 @@
                                         <td>{{ $item->Email }}</td>
  
                                         <td>
-                                            <a href="{{ url('/auteurs/' . $item->id) }}" title="Consulter Auteur"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> </button></a>
+                                            <a href="{{ url('/auteurs/' . $item->id) }}" title="Consulter infos Auteur"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> </button></a>
                                             <a href="{{ url('/auteurs/' . $item->id . '/edit') }}" title="Modifier Auteur"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </button></a>
  
                                             <form method="POST" action="{{ url('/auteurs' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">

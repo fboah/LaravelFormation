@@ -9,7 +9,7 @@ class Livre extends Model
 {
     protected $table = 'livres';
     protected $primaryKey = 'id';
-    protected $fillable = ['Titre', 'IdCategorie', 'DateParution'];
+    protected $fillable = ['Titre', 'IdCategorie', 'DateParution', 'IdAuteur'];
 
     public function categorie(): BelongsTo
     {

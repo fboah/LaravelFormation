@@ -61,18 +61,20 @@
                     </li>
 
 
-                    <li class="label">Création des Modèles</li>
-                    <li><a href="{{ url('/categories') }}" ><i class="ti-package"></i> Catégorie </a>
-                   
+                    <li class="label">Création</li>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid2-alt"></i> Modèles <span
+                                class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                        <li><a href="{{ url('/fournisseurs') }}" ><i class="ti-id-badge"></i> Fournisseurs </a></li>
+                        <li><a href="{{ url('/categories') }}" ><i class="ti-package"></i> Catégorie </a></li>
+                        <li><a href="{{ url('/livres') }}" ><i class="ti-layers-alt"></i> Livre </a></li>
+                        <li><a href="{{ url('/auteurs') }}" ><i class="ti-user"></i> Auteur </a></li>
+                        <li><a href="{{ url('/sites') }}" ><i class="ti-world"></i> Sites </a></li>
+                      
+                          
+                        </ul>
                     </li>
-
-                    <li><a href="{{ url('/livres') }}" ><i class="ti-layers-alt"></i> Livre </a>
-                   
-                   </li>
-
-                   <li><a href="{{ url('/auteurs') }}" ><i class="ti-user"></i> Auteur </a>
-                   
-                   </li>
+                 
 
                     
 

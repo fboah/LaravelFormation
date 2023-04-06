@@ -25,6 +25,19 @@
         </div>
 
 
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Auteur</label>
+            <select class="form-control" name="IdAuteur">
+                @foreach($auteurs as $obj)
+                
+                <option @selected($obj->id == $livre->IdAuteur)
+                    value="{{ $obj->id }}">{{$obj->Prenom}} {{$obj->Nom}}</option>
+                @endforeach
+             </select>
+
+        </div>
+
+
         <label>Date Parution</label>       
         <input type="date" name="DateParution" id="DateParution" value="{{ date('Y-m-d',strtotime($livre->DateParution))}}" class="form-control">
       

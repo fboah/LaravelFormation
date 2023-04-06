@@ -21,6 +21,18 @@
 
         </div>
 
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Auteur</label>
+            <select class="form-control" name="IdAuteur">
+                @foreach($auteurs as $item)
+                <option id="IdAuteur" value="{{$item->id}}">{{$item->Prenom}} {{$item->Nom}}</option>
+                @endforeach
+             </select>
+
+        </div>
+
+
         <label>Date Parution</label>
         <input type="date" name="DateParution" id="DateParution" class="form-control">
         

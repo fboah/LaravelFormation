@@ -6,6 +6,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\AuteurController;
+use App\Http\Controllers\FournisseurController;
+use App\Http\Controllers\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,10 @@ Route::resource("/livres", LivreController::class);
 Route::resource("/categories", CategorieController::class);
 
 Route::resource("/auteurs", AuteurController::class);
+
+Route::resource("/fournisseurs", FournisseurController::class);
+
+Route::resource("/sites", SiteController::class);
 
 //Route::resource("/", WelcomeController::class);
 

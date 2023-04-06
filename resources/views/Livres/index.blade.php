@@ -20,7 +20,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Titre</th>
-                                       
+                                        <th>Auteur</th>
                                         <th>Catégorie</th>
                                         <th>DateParution</th>
                                         <th>Actions</th>
@@ -32,7 +32,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->Titre }}</td>
-                                        
+                                        <td>{{ $item->Prenom }} {{ $item->Nom }}</td>
                                         <td>{{ $item->Libelle }}</td>
                                         <td>{{ date('d-m-Y',strtotime($item->DateParution)) }}</td>
  

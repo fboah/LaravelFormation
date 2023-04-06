@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
 use App\Models\Auteur;
-
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-use Illuminate\Support\Facades\File;
+use Illuminate\Providers;
 
 use DB;
 
@@ -44,38 +41,38 @@ class AuteurController extends Controller
   
     public function store(Request $request): RedirectResponse
     {
-
-        $this->validate($request, [
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-        ]);
+        //dd($request);
 
         $input = $request->all();
 
-      //  $file= file('$request->Image');
-        //dd("$file");
+        $img=$request->file('Image');
+    
 
-        $toto=$request->Image;
+        if($img){
 
-        if($img=file("D:\EBENYX.png")){
+           // $destination_path='images/';
+           // $profileImage=date('YmdHi').".".$toto;
 
-            $destination_path='images/';
-            $profileImage=date('YmdHi').".".$toto;
+           // $img->move($destination_path,$profileImage);
 
-            $img->move($destination_path,$profileImage);
+         // // $img->store('Image', 'public\images');
 
-          // $img->store('Image', 'public\images');
+           // // $input['Image']= $profileImage;
 
-             $input['Image']= $profileImage;
+          //  $file= $request->file('Image');
+            //$filename= date('YmdHi').$file->getClientOriginalExtension();
+            //$file-> move(public_path('/images'), date('YmdHi').$filename);
+           
+            
+            $filename= $request->getschemeAndHttpHost().'/images/'.time().'.'.$request->Image->extension();
+           
+            $nomImage=time().'.'.$request->Image->extension();
+            //uploader l'image
+            $img-> move(public_path('images'),$filename);
 
-            //$file= $request->file("Image")->store('Image', 'public\images');
-            //$filename= date('YmdHi').$file->extension();
-            //$file-> move(public_path('public/images'), date('YmdHi').$filename);
-           // $input['Image']= $filename;
+            $input['Image']= $nomImage;
         }
-       // $file= $request->Image;
-        //dd($file);
-
-        //$image_path = $request->file('Image')->store('Image', 'public\images');
+     
         Auteur::create($input);
         return redirect('auteurs')->with('flash_message', 'auteur Addedd!');
     }
@@ -83,8 +80,20 @@ class AuteurController extends Controller
     public function show(string $id): View
     {
         $auteur = Auteur::find($id);
-      
-        return view('auteurs.show')->with('auteurs', $auteur);
+
+       // $livreauteur = DB::table('posts')->where('id','=',1)
+
+        $livreauteur = DB::table('livres')
+        ->select('livres.id as id', 'livres.Titre', 'livres.IdCategorie', 'livres.DateParution',
+              'categories.Libelle as Libelle', 'auteurs.Nom', 'auteurs.Prenom')
+        ->leftJoin('categories', 'categories.id', '=', 'livres.IdCategorie')
+        ->leftJoin('auteurs', 'auteurs.id', '=', 'livres.IdAuteur')
+        ->where('IdAuteur','=',$id)
+        ->orderBy('livres.Titre', 'asc')
+        ->get();
+
+
+        return view('auteurs.show')->with('auteurs', $auteur)->with('livreauteur', $livreauteur);
     }
  
     public function edit(string $id): View
@@ -97,6 +106,31 @@ class AuteurController extends Controller
     {
         $auteur = Auteur::find($id);
         $input = $request->all();
+      
+
+        //Télécharger image
+        $img=$request->file('Image');
+    
+
+        if($img){
+
+            $filename= $request->getschemeAndHttpHost().'/images/'.time().'.'.$request->Image->extension();
+           
+            $nomImage=time().'.'.$request->Image->extension();
+            //uploader l'image
+            $img-> move(public_path('images'),$filename);
+
+            $input['Image']= $nomImage;
+        }
+        else
+        {
+            //Utiliser l'image déjà sauvegardée au cas où on en a pas défini
+            
+             $imgsauv=$auteur['Image'];
+             $input['Image']= $imgsauv;
+
+        }
+     
         $auteur->update($input);
         return redirect('auteurs')->with('flash_message', 'auteur Updated!');  
     }
