@@ -8,6 +8,8 @@ use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\AuteurController;
 use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\AchatController;
+use App\Http\Controllers\StockController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,10 @@ Route::resource("/auteurs", AuteurController::class);
 Route::resource("/fournisseurs", FournisseurController::class);
 
 Route::resource("/sites", SiteController::class);
+
+Route::resource("/achats", AchatController::class);
+
+Route::resource("/stock", StockController::class);
 
 //Route::resource("/", WelcomeController::class);
 

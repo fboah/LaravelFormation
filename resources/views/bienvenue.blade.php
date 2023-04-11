@@ -53,11 +53,11 @@
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-layout-grid2 color-pink border-pink"></i>
+                                    <div class="stat-icon dib"><i class="ti-credit-card color-purple border-purple"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Active Projects</div>
-                                        <div class="stat-digit">770</div>
+                                        <div class="stat-text">Achats Fourn.</div>
+                                        <div class="stat-digit">{{$nbachats}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,53 @@
                         </div>
                     </div>
                     <div class="row">
+                       
+
                         <div class="col-lg-8">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div class="ct-pie-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                                    <div class="card">
+                                    <div class="card-title">
+                                    <h4>NOS AUTEURS</h4>
+
+                                </div>
+                                        <div class="testimonial-widget-one p-17">
+                                            <div class="testimonial-widget-one owl-carousel owl-theme">
+                                              
+                                                @foreach($auteurs as $item)
+                                                <div class="item">
+                                                    <div class="testimonial-content">
+                                                        
+                                                    <i class="fa fa-quote-left"></i>   <i class="fa fa-quote-right"></i>
+
+                                                        <img class="testimonial-author-img"
+                                                            src="/images/{{ $item->Image }}"  />
+                                                        <div class="testimonial-author">{{ $item->Prenom }} {{ $item->Nom }}</div>
+                                                      
+                                                    </div>
+                                                </div>
+                                                @endforeach
+
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                    </div>
+
+                   
+                  
+                    <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Fee Collections and Expenses</h4>
@@ -87,18 +133,9 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
-                            <div class="card">
-
-                                <div class="card-body">
-                                    <div class="ct-pie-chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                    <div class="row">
+                   
+                   
+                                <div class="row">
                         <div class="col-lg-12">
                             <div class="footer">
                                 <p>2018 © Admin Board. - <a href="#">example.com</a></p>

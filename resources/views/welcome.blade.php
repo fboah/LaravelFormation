@@ -66,17 +66,21 @@
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                         <li><a href="{{ url('/fournisseurs') }}" ><i class="ti-id-badge"></i> Fournisseurs </a></li>
-                        <li><a href="{{ url('/categories') }}" ><i class="ti-package"></i> Catégorie </a></li>
-                        <li><a href="{{ url('/livres') }}" ><i class="ti-layers-alt"></i> Livre </a></li>
+                        <li><a href="{{ url('/categories') }}" ><i class="ti-wallet"></i> Catégorie </a></li>
+                        <li><a href="{{ url('/livres') }}" ><i class="ti-book"></i> Livre </a></li>
                         <li><a href="{{ url('/auteurs') }}" ><i class="ti-user"></i> Auteur </a></li>
                         <li><a href="{{ url('/sites') }}" ><i class="ti-world"></i> Sites </a></li>
                       
-                          
                         </ul>
                     </li>
                  
+                    <li class="label">Transactions</li>
+                   
+                    <li><a href="{{ url('/stock') }}"><i class="ti-package"></i> Stock</a></li>
+                    <li><a href="{{ url('/achats') }}"><i class="ti-credit-card"></i> Achats Fourn</a></li>
+                    <li><a href="../documentation/index.html"><i class="ti-agenda"></i> Ventes</a></li>
 
-                    
+
 
 
                     <li class="label">Apps</li>
@@ -92,10 +96,8 @@
                             <li><a href="chart-knob.html">Knob</a></li>
                         </ul>
                     </li>
-                    <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
-                    <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
-                    <li><a href="app-profile.html"><i class="ti-user"></i> Profile</a></li>
-                    <li><a href="app-widget-card.html"><i class="ti-layout-grid2-alt"></i> Widget</a></li>
+                   
+
                     <li class="label">Features</li>
                     <li><a class="sidebar-sub-toggle"><i class="ti-layout"></i> UI Elements <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>

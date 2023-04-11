@@ -92,6 +92,8 @@ class AuteurController extends Controller
         ->orderBy('livres.Titre', 'asc')
         ->get();
 
+      
+
 
         return view('auteurs.show')->with('auteurs', $auteur)->with('livreauteur', $livreauteur);
     }
