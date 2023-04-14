@@ -78,7 +78,7 @@
                    
                     <li><a href="{{ url('/stock') }}"><i class="ti-package"></i> Stock</a></li>
                     <li><a href="{{ url('/achats') }}"><i class="ti-credit-card"></i> Achats Fourn</a></li>
-                    <li><a href="../documentation/index.html"><i class="ti-agenda"></i> Ventes</a></li>
+                    <li><a href="{{ url('/ventes') }}"><i class="ti-agenda"></i> Ventes</a></li>
 
 
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\FournisseurController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\VenteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,10 @@ Route::resource("/sites", SiteController::class);
 Route::resource("/achats", AchatController::class);
 
 Route::resource("/stock", StockController::class);
+
+Route::resource("/ventes", VenteController::class);
+
+Route::get('/findstock',[VenteController::class,'show']);
 
 //Route::resource("/", WelcomeController::class);
 
