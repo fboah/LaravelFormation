@@ -10,7 +10,7 @@
 
 
         <label>Date Achat</label>
-        <input type="date" name="DateAchat" id="DateAchat" class="form-control">
+        <input type="date" name="DateAchat" id="DateAchat" class="form-control" value="<?php echo date('Y-m-d'); ?>">
 
         <div class="form-group">
             <label for="exampleFormControlSelect1">Fournisseurs</label>

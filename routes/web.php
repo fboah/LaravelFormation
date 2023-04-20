@@ -11,6 +11,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\VenteController;
+use App\Http\Controllers\AuthManager;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,21 @@ use App\Http\Controllers\VenteController;
 Route::get('/', function () {
     return view('Bienvenue');
 });
+
+
+Route::get('/home', function () {
+    return view('Bienvenue');
+});
+
+
+Route::get('/login',[AuthManager::class,'login']);
+Route::post('/login',[AuthManager::class,'loginPost']);
+
+Route::get('/registration',[AuthManager::class,'registration']);
+Route::post('/registration',[AuthManager::class,'registrationPost']);
+
+Route::get('/logout',[AuthManager::class,'logout']);
+
 
 
 Route::get('/test/{username}',[TestController::class,'methode1']);

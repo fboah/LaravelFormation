@@ -34,7 +34,7 @@
 
 
         <label>Date Parution</label>
-        <input type="date" name="DateParution" id="DateParution" class="form-control">
+        <input type="date" name="DateParution" id="DateParution" class="form-control" value="<?php echo date('Y-m-d'); ?>">
         
         <input type="submit" value="Enregistrer" class="btn btn-success">
 

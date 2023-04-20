@@ -16,7 +16,7 @@
         <input type="text" name="Prenom" id="Prenom" class="form-control">
 
         <label>Date Naissance</label>
-        <input type="date" name="DateNaissance" id="DateNaissance" class="form-control">
+        <input type="date" name="DateNaissance" id="DateNaissance" class="form-control" value="<?php echo date('Y-m-d'); ?>">
 
         <div class="form-group">
             <label for="exampleFormControlSelect1">Sexe</label>
