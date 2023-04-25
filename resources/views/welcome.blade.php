@@ -53,14 +53,14 @@
         <div class="nano">
             <div class="nano-content">
                 <ul>
-                    <div class="logo"><a href="index.html">
+                    <div class="logo"><a href="{{ url('/') }}">
                             <!-- <img src="images/logo.png" alt="" /> --><span>BIBLIOTHEQUE</span></a></div>
                     <li class="label">Main</li>
                     <li><a href="{{ url('/') }}"><i class="ti-home"></i> Tableau de Bord  </a>
                     
                     </li>
 
-
+                    @auth
                     <li class="label">Création</li>
                     <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid2-alt"></i> Modèles <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -73,16 +73,20 @@
                       
                         </ul>
                     </li>
+                    @endauth
+                    
                  
                     <li class="label">Transactions</li>
                    
                     <li><a href="{{ url('/stock') }}"><i class="ti-package"></i> Stock</a></li>
+                    @auth
                     <li><a href="{{ url('/achats') }}"><i class="ti-credit-card"></i> Achats Fourn</a></li>
+                    @endauth
                     <li><a href="{{ url('/ventes') }}"><i class="ti-agenda"></i> Ventes</a></li>
 
 
 
-
+                    @auth
                     <li class="label">Apps</li>
                     <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Charts <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -170,13 +174,14 @@
                         </ul>
                     </li>
                     <li><a href="../documentation/index.html"><i class="ti-file"></i> Documentation</a></li>
-                    <li><a><i class="ti-close"></i> Logout</a></li>
+                    <li><a href="{{ url('/logout') }}" ><i class="ti-close"></i> Logout</a></li>
+                    @endauth
                 </ul>
             </div>
         </div>
     </div>
     <!-- /# sidebar -->
-
+    @auth
     <div class="header">
         <div class="container-fluid">
             <div class="row">
@@ -189,15 +194,22 @@
                         </div>
                     </div>
                     <div class="float-right">
-                       
-                       
+
+                        <li>
+                             <a href="{{ url('/logout') }}">
+                             <i class="ti-power-off"></i>
+                              <span>Se Déconnecter</span>
+                              </a>
+                        </li>
+                                         
                         <div class="dropdown dib">
                             <div class="header-icon" data-toggle="dropdown">
-                                <span class="user-avatar">John
+                                <span class="user-avatar">{{Auth::user()->name}}
                                     <i class="ti-angle-down f-s-10"></i>
                                 </span>
+                              
                                 <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                   
+                              
                                     <div class="dropdown-content-body">
                                         <ul>
                                             <li>
@@ -207,12 +219,7 @@
                                                 </a>
                                             </li>
 
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-email"></i>
-                                                    <span>Inbox</span>
-                                                </a>
-                                            </li>
+                                           
                                             <li>
                                                 <a href="#">
                                                     <i class="ti-settings"></i>
@@ -221,17 +228,13 @@
                                             </li>
 
                                             <li>
-                                                <a href="#">
-                                                    <i class="ti-lock"></i>
-                                                    <span>Lock Screen</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
+                                                <a href="{{ url('/logout') }}">
                                                     <i class="ti-power-off"></i>
                                                     <span>Logout</span>
                                                 </a>
                                             </li>
+
+                                           
                                         </ul>
                                     </div>
                                 </div>
@@ -242,7 +245,7 @@
             </div>
         </div>
     </div>
-
+    @endauth
 
     <div class="content-wrap">
        @yield('contentwelcome')

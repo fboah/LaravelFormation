@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+//use App\Http\Controllers\Session;
 
 class AuthManager extends Controller
 {
@@ -58,15 +59,17 @@ class AuthManager extends Controller
 
         return redirect()->intended((url('/login')))->with("success","Veuillez vous connecter");
 
-
     }
 
 
     public function logout()
     {
-       Session::flush();
+       //Session::flush();
        Auth::logout();
-       return redirect()->intended(route('/login'));
+
+      //$r=$request->session()->flush();
+
+       return redirect()->intended((url('/login')))->with('success','logout sucessfully');
 
     }
 

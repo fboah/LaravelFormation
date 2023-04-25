@@ -53,10 +53,10 @@
                                     <input type="password" class="form-control" name="password" placeholder="Password">
                                 </div>
                               
-                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Enregistrer</button>
                               
                                 <div class="register-link m-t-15 text-center">
-                                    <p>Already have account ? <a href="{{ url('/login') }}"> Sign in</a></p>
+                                    <p>Vous avez déjà un compte ? <a href="{{ url('/login') }}"> Se Connecter</a></p>
                                 </div>
                             </form>
                         </div>

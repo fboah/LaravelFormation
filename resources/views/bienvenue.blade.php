@@ -6,7 +6,7 @@
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Bonjour, <span>Bienvenue!</span></h1>
+                                <h1>Bonjour, <span>Bienvenue !</span></h1>
                             </div>
                         </div>
                     </div>

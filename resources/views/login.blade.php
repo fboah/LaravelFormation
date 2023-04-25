@@ -49,18 +49,16 @@
                                     <input type="password" class="form-control" name="password"  placeholder="Password">
                                 </div>
                                 <div class="checkbox">
-                                    <label>
-										<input type="checkbox"> Remember Me
-									</label>
+                                   
                                     <label class="pull-right">
-										<a href="#">Forgotten Password?</a>
+										<a href="{{ url('/') }}">Consulter nos stocks et Achetez!</a>
 									</label>
 
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-flat m-b-10 m-t-10">Sign in</button>
+                                <button type="submit" class="btn btn-primary btn-flat m-b-10 m-t-10">Se Connecter</button>
                               
                                 <div class="register-link m-t-15 text-center">
-                                    <p>Don't have account ? <a href="{{ url('/registration') }}"> Sign Up Here</a></p>
+                                    <p>Vous n'avez pas de compte ? <a href="{{ url('/registration') }}"> Enregistrez-vous ici</a></p>
                                 </div>
                             </form>
                         </div>
