@@ -12,6 +12,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\VenteController;
+use App\Http\Controllers\HightChartController;
 use App\Http\Controllers\AuthManager;
 /*
 |--------------------------------------------------------------------------
@@ -41,14 +42,15 @@ Route::middleware('auth')->group(function () {
 //AVANT AUTHENTIFICATION+++++++++++++++++++++++++++
 
 
-Route::get('/', function () {
-    return view('Bienvenue');
-});
+//Route::get('/', function () {
+  //  return view('Bienvenue');
+//});
+
+
+Route::get('/',[HightChartController::class,'donutChart']);
 
 Route::middleware('auth')->group(function () {
    
-
-
 Route::get('/test/{username}',[TestController::class,'methode1']);
 
 Route::get('/accueil',[TestController::class,'accueil']);

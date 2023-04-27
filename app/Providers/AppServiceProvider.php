@@ -57,10 +57,8 @@ class AppServiceProvider extends ServiceProvider
        View::share('livres', $livres);
 
 
-       
-
+      
        // dd($Listeachats);
-
 
 
        // $nblivres = DB::table('livres')

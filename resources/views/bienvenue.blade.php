@@ -77,15 +77,51 @@
                     <div class="row">
                        
 
+
                         <div class="col-lg-8">
                             <div class="card">
 
                                 <div class="card-body">
-                                    <div class="ct-pie-chart"></div>
+                                  
+                                
+
+                                    <html>
+                                    <head>
+                                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                        <script type="text/javascript">
+                                        google.charts.load('current', {'packages':['corechart']});
+                                        google.charts.setOnLoadCallback(drawChart);
+
+                                        function drawChart() {
+
+                                            var data = google.visualization.arrayToDataTable([
+                                                ['Titre', 'Quantité'],
+                                                <?php echo $chartData;  ?> 
+                                            ]);
+
+                                            var options = {
+                                            title: 'Le Top 10 des ouvrages en Stock',
+                                            is3D:'true'
+                                            };
+
+                                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                                            chart.draw(data, options);
+                                        }
+                                        </script>
+                                    </head>
+                                    <body>
+                                        <div id="piechart" style="width: 600px; height: 350px;"></div>
+                                    </body>
+                                    </html>
+                               
+
+
                                 </div>
                             </div>
                         </div>
 
+                    
                         <div class="col-lg-4">
                                     <div class="card">
                                     <div class="card-title">
@@ -118,30 +154,7 @@
 
 
                     </div>
-
                    
-                  
-                    <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-title">
-                                    <h4>Fee Collections and Expenses</h4>
-
-                                </div>
-                                <div class="card-body">
-                                    <div class="ct-bar-chart m-t-30"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                   
-                   
-                                <div class="row">
-                        <div class="col-lg-12">
-                            <div class="footer">
-                                <p>2018 © Admin Board. - <a href="#">example.com</a></p>
-                            </div>
-                        </div>
-                    </div>
                 </section>
             </div>
         </div>
