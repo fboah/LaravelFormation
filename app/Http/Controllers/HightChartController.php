@@ -37,14 +37,14 @@ class HightChartController extends Controller
        ->orderby('Qtite','desc')
        ->groupby('id','Nom','Prenom')
        ->havingRaw('Qtite >  0')
-       ->limit(10)
+       ->limit(5)
        ->get();
 
        
 
       $dataAut="";
       foreach($auteurscount as $val){
-       $dataAut.="['".$val->Nom."',".$val->Qtite."],";
+       $dataAut.="['".$val->Prenom."  ".$val->Nom."',".$val->Qtite."],";
       }
 
       //dd($dataAut);
@@ -53,7 +53,7 @@ class HightChartController extends Controller
 
       
 
-      return view ('Bienvenue',compact('chartData','chartDataAut'));//->with('chartData', $chartData);
+      return view ('Bienvenue',compact('chartDataAut'));//->with('chartData', $chartData);
 
     }
 }

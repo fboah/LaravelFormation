@@ -38,6 +38,15 @@
                       
                         <div class="login-form">
                             <h4>Login</h4>
+                            <div>
+                                    @if(session()->has('success'))
+
+                                    <div class="alert alert-success">
+                                    {{session()->get('success')}}
+                                    </div>
+                                   
+                                    @endif
+                                </div>
                             <form action="{{ url('/login') }}" method="post">
                             {!! csrf_field() !!}
                                 <div class="form-group">
@@ -48,6 +57,18 @@
                                     <label>Password</label>
                                     <input type="password" class="form-control" name="password"  placeholder="Password">
                                 </div>
+
+                                <div>
+                                    @if(session()->has('error'))
+
+                                    <div class="alert alert-danger">
+                                    {{session()->get('error')}}
+                                    </div>
+                                   
+                                    @endif
+                                </div>
+
+
                                 <div class="checkbox">
                                    
                                     <label class="pull-right">

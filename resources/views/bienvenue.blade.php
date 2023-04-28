@@ -26,7 +26,8 @@
                 <!-- /# row -->
                 <section id="main-content">
                     <div class="row">
-                        <div class="col-lg-3">
+                       
+                    <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-book color-success border-success"></i>
@@ -38,7 +39,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+
+						   <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
@@ -50,7 +52,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+
+
+			 <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-credit-card color-purple border-purple"></i>
@@ -62,7 +66,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+
+
+			   <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-link color-danger border-danger"></i></div>
@@ -70,21 +76,91 @@
                                         <div class="stat-text">Referral</div>
                                         <div class="stat-digit">2,781</div>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
+
+
+
+                         <!-- Widget
+                        
+                        <div class="col-lg-3">
+                        <div class="card p-0">
+                            <div class="stat-widget-three">
+                            <div class="stat-icon bg-success">
+                                <i class="ti-book color-success border-success"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-text">Livres</div>
+                                <div class="stat-digit">{{$nblivres}}</div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+
+                        <div class="col-lg-3">
+                        <div class="card p-0">
+                            <div class="stat-widget-three">
+                            <div class="stat-icon bg-primary">
+                                <i class="ti-user color-primary border-primary"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-text">Auteurs</div>
+                                <div class="stat-digit">{{$nbauteurs}}</div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+
+                     
+
+                        <div class="col-lg-3">
+                        <div class="card p-0">
+                            <div class="stat-widget-three">
+                            <div class="stat-icon bg-warning">
+                                <i class="ti-credit-card color-purple border-purple"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-text">Achats Fourn.</div>
+                                <div class="stat-digit">{{$nbachats}}</div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                     
+
+                        <div class="col-lg-3">
+                        <div class="card p-0">
+                            <div class="stat-widget-three">
+                            <div class="stat-icon bg-danger">
+                                <i class="ti-link color-danger border-danger"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-digit">123</div>
+                                <div class="stat-text">New User</div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+
+                        -->
+
+
                     </div>
+
                     <div class="row">
                        
-
-
                         <div class="col-lg-8">
                             <div class="card">
 
                                 <div class="card-body">
                                   
                                 
-
                                     <html>
                                     <head>
                                         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -96,11 +172,11 @@
 
                                             var data = google.visualization.arrayToDataTable([
                                                 ['Titre', 'Quantité'],
-                                                <?php echo $chartData;  ?> 
+                                                <?php echo $chartDataAut;  ?> 
                                             ]);
 
                                             var options = {
-                                            title: 'Le Top 10 des ouvrages en Stock',
+                                            title: 'Le Top 5 des Auteurs les plus prolifiques',
                                             is3D:'true'
                                             };
 
@@ -124,9 +200,11 @@
                     
                         <div class="col-lg-4">
                                     <div class="card">
-                                    <div class="card-title">
-                                    <h4>NOS AUTEURS</h4>
-
+                                    <div class=" bg-info mb-3">
+                                        <div class="card-header">
+                                             <h5>NOS AUTEURS</h5>
+                                        </div>
+                                    
                                 </div>
                                         <div class="testimonial-widget-one p-17">
                                             <div class="testimonial-widget-one owl-carousel owl-theme">
@@ -145,7 +223,6 @@
                                                 </div>
                                                 @endforeach
 
-                                               
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +232,10 @@
 
                     </div>
                    
-                </section>
+              
+              
+              
+                        </section>
             </div>
         </div>
 

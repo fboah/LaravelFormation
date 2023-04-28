@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/',[HightChartController::class,'donutChart']);
 
 Route::middleware('auth')->group(function () {
+
    
 Route::get('/test/{username}',[TestController::class,'methode1']);
 

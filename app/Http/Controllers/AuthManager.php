@@ -57,7 +57,7 @@ class AuthManager extends Controller
             return redirect()->intended((url('/registration')))->with("error","Les informations de connexion sont erronés!");
         }
 
-        return redirect()->intended((url('/login')))->with("success","Veuillez vous connecter");
+        return redirect()->intended((url('/login')))->with("success","Veuillez vous connecter!");
 
     }
 
@@ -69,7 +69,7 @@ class AuthManager extends Controller
 
       //$r=$request->session()->flush();
 
-       return redirect()->intended((url('/login')))->with('success','logout sucessfully');
+       return redirect()->intended((url('/login')))->with('logoutok','logout sucessfully');
 
     }
 
