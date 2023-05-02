@@ -15,7 +15,7 @@
 
         <div class="form-group">
             <label for="exampleFormControlSelect1">Livres</label>
-            <select class="form-control" name="IdLivre" >
+            <select class="form-control" name="IdLivre" id="IdLivre" >
                 @foreach($livres as $item)
                 <option id="IdLivre" value="{{$item->id}}">{{$item->Titre}}</option>
                 @endforeach
@@ -54,20 +54,39 @@
        
     </form>
 
-    @push('script')
+ 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $('.js-example-basic-single').select2({
-            theme: "classic"
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#IdLivre').change(function(){
+
+                $.ajaxSetup({
+
+                });
+
+                   var id=$(this).val();
+                  // alert(id); 
+
+                   $.ajax({
+                       type:"GET",
+                       url:"/sitebylivre/"+id,
+                       dataType:"json",
+                       success:function(data){
+                           console.log(data);
+                       },
+                       error:function(error){
+                        console.log(data);
+                       }
+                   })
+
+
+            })
+          
         });
-        $('body').on('change','.IdLivre',()=>{
-            const text = $('.IdLivre').find(":selected").text();
-            const value = $('.IdLivre option:selected').val();
-            $('#value').html(value);
-        });
+    
     </script>
-    @endpush
+ 
 
        
 

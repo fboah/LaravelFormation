@@ -17,6 +17,26 @@ class StockController extends Controller
 {
     //STOCK
 
+    public function SiteByLivre(string $id)
+    {
+        $siteLivre = DB::table('achats')
+        ->select('achats.IdSite',  
+              \DB::Raw("SUM(Quantite) as Qtite"))
+             // ->leftJoin('sites', 'achats.IdSite', '=', 'sites.id')
+              
+        ->orderby('Qtite','desc')
+        ->groupby('IdSite')
+        ->havingRaw('Qtite >  0')
+        ->where('IdLivre','=',$id)
+        ->get();
+
+        dd($siteLivre);
+
+      return response()->json($siteLivre);//->with('chartData', $chartData);
+   
+    }
+
+
     public function index(): View
     {
         $Listeachats = DB::table('achats')

@@ -15,7 +15,7 @@
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Home</li>
                                 </ol>
                             </div>
@@ -76,7 +76,6 @@
                                         <div class="stat-text">Referral</div>
                                         <div class="stat-digit">2,781</div>
                                     </div>
-
 
                                 </div>
                             </div>

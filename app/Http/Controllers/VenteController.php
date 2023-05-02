@@ -71,11 +71,6 @@ class VenteController extends Controller
 
 
 
-
-
-
-
-
         $vente = Vente::find($id);
         return view('ventes.show')->with('ventes', $vente);
     }

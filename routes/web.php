@@ -47,10 +47,11 @@ Route::middleware('auth')->group(function () {
 //});
 
 
-Route::get('/',[HightChartController::class,'donutChart']);
+
 
 Route::middleware('auth')->group(function () {
 
+  Route::get('/',[HightChartController::class,'donutChart']);
    
 Route::get('/test/{username}',[TestController::class,'methode1']);
 
@@ -68,18 +69,26 @@ Route::resource("/fournisseurs", FournisseurController::class);
 
 Route::resource("/sites", SiteController::class);
 
-Route::get('/findstock',[VenteController::class,'show']);
-    Route::resource("/achats", AchatController::class);
-});
 
+Route::get('/findstock',[VenteController::class,'show']);
+Route::resource("/achats", AchatController::class);
 
 Route::resource("/stock", StockController::class);
 
 Route::resource("/ventes", VenteController::class);
 
+//Ramener les sites où se trouve le livre
+Route::get('/SiteByLivre/{id}',[StockController::class,'SiteByLivre']);
+
+
+
 Route::get('/home', function () {
     return view('Bienvenue');
 });
+
+});
+
+
 
 
 Route::get('/login',[AuthManager::class,'login']);

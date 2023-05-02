@@ -50,9 +50,6 @@ class HightChartController extends Controller
       //dd($dataAut);
       $chartDataAut=$dataAut;
 
-
-      
-
       return view ('Bienvenue',compact('chartDataAut'));//->with('chartData', $chartData);
 
     }
