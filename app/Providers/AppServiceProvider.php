@@ -47,6 +47,9 @@ class AppServiceProvider extends ServiceProvider
         $nbachats = DB::table('achats')->count();
         View::share('nbachats', $nbachats);
 
+        $nbventes = DB::table('ventes')->count();
+        View::share('nbventes', $nbventes);
+
        $livres = DB::table('livres')
        ->select('livres.id as id', 'livres.Titre', 'livres.IdCategorie', 'livres.DateParution',
              'categories.Libelle as Libelle', 'auteurs.Nom', 'auteurs.Prenom')

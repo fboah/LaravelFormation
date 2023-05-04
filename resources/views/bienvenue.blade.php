@@ -26,6 +26,7 @@
                 <!-- /# row -->
                 <section id="main-content">
                     <div class="row">
+
                        
                     <div class="col-lg-3">
                             <div class="card">
@@ -73,8 +74,8 @@
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-link color-danger border-danger"></i></div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Referral</div>
-                                        <div class="stat-digit">2,781</div>
+                                        <div class="stat-text">Ventes</div>
+                                        <div class="stat-digit">{{$nbventes}}</div>
                                     </div>
 
                                 </div>
@@ -145,16 +146,13 @@
                             </div>
                         </div>
                         </div>
-
-
                         -->
-
-
                     </div>
+
 
                     <div class="row">
                        
-                        <div class="col-lg-8">
+                        <div class="col-lg-9">
                             <div class="card">
 
                                 <div class="card-body">
@@ -186,18 +184,18 @@
                                         </script>
                                     </head>
                                     <body>
-                                        <div id="piechart" style="width: 600px; height: 350px;"></div>
+                                        <div id="piechart" style="width: 700px; height: 350px;"></div>
                                     </body>
                                     </html>
                                
 
-
                                 </div>
+
+
                             </div>
                         </div>
 
-                    
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                                     <div class="card">
                                     <div class=" bg-info mb-3">
                                         <div class="card-header">
@@ -231,7 +229,6 @@
 
                     </div>
                    
-              
               
               
                         </section>

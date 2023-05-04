@@ -80,6 +80,9 @@ Route::resource("/ventes", VenteController::class);
 //Ramener les sites où se trouve le livre
 Route::get('/SiteByLivre/{id}',[StockController::class,'SiteByLivre']);
 
+//Ramener les qtité en fction du livre et du site
+Route::get('/SiteByLivreStock/{id}/{idSite}',[StockController::class,'SiteByLivreStock']);
+
 
 
 Route::get('/home', function () {

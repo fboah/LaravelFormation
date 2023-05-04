@@ -31,7 +31,7 @@
                     <div class="media-body">
                       <h4 class="media-heading">{{$item->LibelleSite}}</h4>
                       
-                      <p>Stock :  {{$item->QtiteAchat}} </p>
+                      <p>Stock :  {{$item->QtiteStock}} </p>
                      
                       <p class="comment-date">{{$item->Ville}}</p>
                     </div>
