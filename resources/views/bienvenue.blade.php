@@ -15,8 +15,8 @@
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Home</li>
+                                    <li class="breadcrumb-item"><a href="/">Tableau de Bord</a></li>
+                                    <li class="breadcrumb-item active">Accueil</li>
                                 </ol>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
 			   <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-link color-danger border-danger"></i></div>
+                                    <div class="stat-icon dib"><i class="ti-shopping-cart color-danger border-danger"></i></div>
                                     <div class="stat-content dib">
                                         <div class="stat-text">Ventes</div>
                                         <div class="stat-digit">{{$nbventes}}</div>

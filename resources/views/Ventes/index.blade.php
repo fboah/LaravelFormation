@@ -18,7 +18,7 @@
                         <table class="table table-striped table-bordered" id="bootstrap-data-table-export">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                       
                                         <th>Date Vente</th>
                                         <th>Livre</th>
                                         <th>Auteur</th>
@@ -32,7 +32,7 @@
                                 <tbody>
                                 @foreach($ventes as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                  
                                         <td>{{ date('d-m-Y',strtotime($item->DateVente)) }}</td>
                                         <td>{{ $item->Titre }}</td>
                                         <td>{{ $item->Prenom }} {{ $item->Nom }}</td>

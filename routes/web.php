@@ -13,6 +13,7 @@ use App\Http\Controllers\AchatController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\VenteController;
 use App\Http\Controllers\HightChartController;
+use App\Http\Controllers\StatistiquesController;
 use App\Http\Controllers\AuthManager;
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,11 @@ Route::get('/SiteByLivre/{id}',[StockController::class,'SiteByLivre']);
 
 //Ramener les qtité en fction du livre et du site
 Route::get('/SiteByLivreStock/{id}/{idSite}',[StockController::class,'SiteByLivreStock']);
+
+//Statistiques Auteur
+Route::get('/StatByAuteur',[StatistiquesController::class,'afficher']);
+
+Route::get('/StatByAuteur/{id}',[StatistiquesController::class,'StatByAuteur']);
 
 
 
