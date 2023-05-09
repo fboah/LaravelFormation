@@ -2,19 +2,19 @@
 @section('contentwelcome')
 
 <div class="card">
-  <div class="card-header">Statistiques Auteur</div>
+  <div class="card-header">Statistiques Agence</div>
   <div class="card-body">
       
       <form action="{{ url('/achats') }}" >
         {!! csrf_field() !!}
         
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Auteur</label>
-            <select class="form-control" name="IdAuteur" id="IdAuteur" onchange="updateChart(this)" >
-            <option id="IdAuteur" value="0">Choisir un Auteur</option>
+            <label for="exampleFormControlSelect1">Agence</label>
+            <select class="form-control" name="IdSite" id="IdSite" onchange="updateChart(this)" >
+            <option id="IdSite" value="0">Choisir une Agence</option>
          
-            @foreach($auteurs as $item)
-                <option id="IdAuteur" value="{{$item->id}}">{{$item->Prenom}} {{$item->Nom}}</option>
+            @foreach($agences as $item)
+                <option id="IdSite" value="{{$item->id}}">{{$item->Libelle}}</option>
             @endforeach
              </select>
 
@@ -44,19 +44,19 @@
                   }
 
 
-                 const Cste=document.getElementById('IdAuteur')
+                 const Cste=document.getElementById('IdSite')
 
                  var id=Cste.value;
                    idlivre=id;
                   // alert(id); 
                    $.ajax({
                        type:"GET",
-                       url:"/StatByAuteur/"+id,
+                       url:"/StatByAgence/"+id,
                        dataType:"json",
                        success:function(data){
-                       // console.log(data.Titre);
+                      //  console.log(data.Titre);
                          //  $('#IdAuteur').html(data);
-                         $name=data.img;
+                       //  $name=data.img;
                         
                         // console.log($name);
                          $TitreLivre=data.Titre;
@@ -130,7 +130,50 @@
   
             </div>
 
-         
+
+            <div class="col-lg-7">
+                            <div class="card">
+
+                                <div class="card-body">
+
+                                <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Titre', 'Stock'],
+          <?php echo $dataAutAgence;  ?> 
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Stock/Agence',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: 550px; height: 400px;"></div>
+  </body>
+</html>
+
+
+
+                                </div>
+                            </div>
+  
+            </div>
+
 
         </div>
 

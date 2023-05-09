@@ -88,6 +88,13 @@ Route::get('/SiteByLivreStock/{id}/{idSite}',[StockController::class,'SiteByLivr
 Route::get('/StatByAuteur',[StatistiquesController::class,'afficher']);
 
 Route::get('/StatByAuteur/{id}',[StatistiquesController::class,'StatByAuteur']);
+Route::get('/StatByAuteurImage/{id}',[StatistiquesController::class,'StatByAuteurImage']);
+
+//Statistiques Agence
+Route::get('/StatByAgence',[StatistiquesController::class,'afficherAgence']);
+
+Route::get('/StatByAgence/{id}',[StatistiquesController::class,'StatByAgence']);
+
 
 
 

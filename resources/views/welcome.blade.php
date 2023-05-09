@@ -92,10 +92,29 @@
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                         <li><a href="{{ url('/StatByAuteur') }}" ><i class="ti-user"></i> Auteurs </a></li>
-                        <li><a href="{{ url('/auteurs') }}" ><i class="ti-credit-card"></i> Achats Fourn</a></li>
+                        <li><a href="{{ url('/StatByAgence') }}" ><i class="ti-credit-card"></i> Agences</a></li>
                         <li><a href="{{ url('/sites') }}" ><i class="ti-agenda"></i> Ventes </a></li>
                       
                       
+                        </ul>
+                    </li>
+
+
+                    <li class="label">Features</li>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-layout"></i> UI Elements <span
+                                class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="ui-typography.html">Typography</a></li>
+                            <li><a href="ui-alerts.html">Alerts</a></li>
+
+                            <li><a href="ui-button.html">Button</a></li>
+                            <li><a href="ui-dropdown.html">Dropdown</a></li>
+
+                            <li><a href="ui-list-group.html">List Group</a></li>
+
+                            <li><a href="ui-progressbar.html">Progressbar</a></li>
+                            <li><a href="ui-tab.html">Tab</a></li>
+
                         </ul>
                     </li>
 
