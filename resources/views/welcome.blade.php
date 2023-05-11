@@ -57,7 +57,7 @@
                     <div class="logo"><a href="{{ url('/') }}">
                             <!-- <img src="images/logo.png" alt="" /> --><span>BIBLIOTHEQUE</span></a></div>
                     <li class="label">Main</li>
-                    <li><a href="{{ url('/') }}"><i class="ti-home"></i> Tableau de Bord  </a>
+                    <li><a href="{{ url('/') }}"><i class="ti-dashboard"></i> Tableau de Bord  </a>
                     
                     </li>
 
@@ -70,7 +70,7 @@
                         <li><a href="{{ url('/categories') }}" ><i class="ti-wallet"></i> Catégorie </a></li>
                         <li><a href="{{ url('/livres') }}" ><i class="ti-book"></i> Livre </a></li>
                         <li><a href="{{ url('/auteurs') }}" ><i class="ti-user"></i> Auteur </a></li>
-                        <li><a href="{{ url('/sites') }}" ><i class="ti-world"></i> Sites </a></li>
+                        <li><a href="{{ url('/sites') }}" ><i class="ti-home"></i> Sites </a></li>
                       
                         </ul>
                     </li>
@@ -92,8 +92,9 @@
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                         <li><a href="{{ url('/StatByAuteur') }}" ><i class="ti-user"></i> Auteurs </a></li>
-                        <li><a href="{{ url('/StatByAgence') }}" ><i class="ti-credit-card"></i> Agences</a></li>
-                        <li><a href="{{ url('/sites') }}" ><i class="ti-agenda"></i> Ventes </a></li>
+                        <li><a href="{{ url('/StatByAgence') }}" ><i class="ti-home"></i> Agences</a></li>
+                        <li><a href="{{ url('/StatByLivre') }}" ><i class="ti-book"></i> Livres </a></li>
+                        <li><a href="{{ url('/StatByAchat') }}" ><i class="ti-credit-card"></i> Achats </a></li>
                       
                       
                         </ul>

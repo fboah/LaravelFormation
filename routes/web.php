@@ -89,11 +89,26 @@ Route::get('/StatByAuteur',[StatistiquesController::class,'afficher']);
 
 Route::get('/StatByAuteur/{id}',[StatistiquesController::class,'StatByAuteur']);
 Route::get('/StatByAuteurImage/{id}',[StatistiquesController::class,'StatByAuteurImage']);
+Route::get('/afficherAgenceByAuteur/{id}',[StatistiquesController::class,'afficherAgenceByAuteur']);
+
 
 //Statistiques Agence
 Route::get('/StatByAgence',[StatistiquesController::class,'afficherAgence']);
 
 Route::get('/StatByAgence/{id}',[StatistiquesController::class,'StatByAgence']);
+
+//Statistiques Livre
+Route::get('/StatByLivre',[StatistiquesController::class,'afficherLivre']);
+
+Route::get('/StatByLivre/{id}',[StatistiquesController::class,'StatByLivre']);
+Route::get('/afficherAgenceByLivre/{id}',[StatistiquesController::class,'afficherAgenceByLivre']);
+
+
+//Statistiques Achats
+Route::get('/StatByAchat',[StatistiquesController::class,'afficherAchat']);
+
+
+
 
 
 

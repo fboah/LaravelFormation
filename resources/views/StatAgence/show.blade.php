@@ -117,9 +117,6 @@
                  //  })
 
 
-
-
-
                 }
               
                
@@ -145,14 +142,14 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Titre', 'Stock'],
+          ['Agence', 'Stock'],
           <?php echo $dataAutAgence;  ?> 
         ]);
 
         var options = {
           chart: {
             title: 'Stock/Agence',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+            subtitle: 'Quantité de livres par Agence ',
           }
         };
 
@@ -163,7 +160,7 @@
     </script>
   </head>
   <body>
-    <div id="columnchart_material" style="width: 550px; height: 400px;"></div>
+    <div id="columnchart_material" style="width: 550px; height: 370px;"></div>
   </body>
 </html>
 
