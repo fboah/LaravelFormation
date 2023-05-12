@@ -1,6 +1,8 @@
 @extends('welcome')
 @section('contentwelcome')
 
+
+
 <div class="card">
   <div class="card-header">Ajouter une Vente</div>
   <div class="card-body">
@@ -10,14 +12,19 @@
         <label>Date Vente</label>
         <input type="date" name="DateVente" id="DateVente" class="form-control" value="<?php echo date('Y-m-d'); ?>">
 
+
+        <?php $idlivrechoisi = $NomLivre->id; ?>
+           
         <div class="form-group">
             <label for="exampleFormControlSelect1">Livre</label>
-            <select class="form-control" name="IdLivre" id="IdLivre" >
-            <option id="IdLivre" value="0">Choisir un Livre</option>
-                @foreach($livres as $item)
-                <option id="IdLivre" value="{{$item->id}}">{{$item->Titre}}</option>
+           
+             <select name="IdLivre" class="form-control" id="IdLivre">
+             <option id="IdLivre" value="0">Choisir un Livre</option>
+                @foreach ($livres as $item)
+                <option @selected($item->id == $NomLivre->id)
+                    value="{{ $item->id }}">{{ $item->Titre }}</option>
                 @endforeach
-             </select>
+            </select>
 
         </div>
 
@@ -25,8 +32,12 @@
         <div class="form-group">
             <label for="exampleFormControlSelect1">Site d'Achat</label>
             <select class="form-control" name="IdSite" id="IdSite"  >
-           
+            <option id="IdSite" value="0">Choisir un Site</option>
             
+                 @foreach($siteslivrechoisi as $item)
+                <option id="IdSite" value="{{$item->IdSite}}">{{$item->Libelle}}</option>
+                @endforeach
+           
              </select>
         </div>
 
@@ -46,7 +57,7 @@
         
         <input type="submit" value="Enregistrer" class="btn btn-success">
 
-        <a href="{{ url('/ventes') }}" class="btn btn-danger" role="button" aria-pressed="true">Annuler</a>
+        <a href="{{ url('/stock') }}" class="btn btn-danger" role="button" aria-pressed="true">Annuler</a>
        
     </form>
 
@@ -96,6 +107,14 @@
             // alert(idsite); 
             if(idsite!=0)
             {
+               
+                if(idlivre=="")
+                {
+                    //Cas où on a pas le idlivre 
+                    idlivre={{$idlivrechoisi}};
+                   // console.log($idlivrechoisi);
+                }
+
                 $.ajax({
                 type:"GET",
                 url:"/SiteByLivreStock/"+idlivre+"/"+idsite,

@@ -33,7 +33,7 @@
                                         <td>
                                            
                                         <a href="{{ url('/stock/' . $item->IdLivre) }}" title="Consulter Disponibilité Livre"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> </button></a>
-                                            <a href="{{ url('/ventes/create') }}" title="Acheter Livre"><button class="btn btn-success btn-sm"><i class="fa fa-credit-card" aria-hidden="true"></i> </button></a>
+                                            <a href="{{ url('/ventes/createfromstock/' . $item->IdLivre) }}" title="Acheter Livre"><button class="btn btn-success btn-sm"><i class="fa fa-credit-card" aria-hidden="true"></i> </button></a>
  
                                         </td>
                                     </tr>

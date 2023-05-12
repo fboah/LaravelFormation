@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Vente;
+use App\Models\Livre;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -43,6 +44,37 @@ class VenteController extends Controller
         return redirect('ventes')->with('flash_message', 'vente Addedd!');
     }
  
+    public function createfromstock(string $id): View
+    {
+        $NomLivre=Livre::where('id', $id)->first();
+       // $vente = Vente::find($id);
+     
+     $siteslivrechoisi=DB::select('select A.IdSite, A.Libelle, (IFNULL(A.QtiteAchat,0)-IFNULL(B.QtiteVente,0)) as QtiteStock from 
+     (select achats.IdSite, sites.Libelle,achats.IdLivre,(sum(IFNULL(achats.Quantite,0)) )as QtiteAchat
+     from achats 
+     left Join livres ON livres.id=achats.IdLivre 
+     left Join sites ON sites.id=achats.IdSite 
+     where IdLivre='.$id.' 
+     group By achats.IdLivre,achats.IdSite,sites.Libelle)A
+     Left join 
+     (select ventes.IdSite, sites.Libelle,ventes.IdLivre,(sum(IFNULL(ventes.Quantite,0)))as QtiteVente
+     from ventes 
+     left Join livres ON livres.id=ventes.IdLivre
+      left Join sites ON sites.id=ventes.IdSite 
+     where IdLivre='.$id.'
+     group By ventes.IdLivre,ventes.IdSite,sites.Libelle)B on A.IdSite=B.IdSite
+     
+     where (IFNULL(A.QtiteAchat,0)-IFNULL(B.QtiteVente,0))>0');
+
+      // dd($siteslivrechoisi);
+
+     // url:"/SiteByLivre/"+id
+        return view('ventes.createfromstock')->with('NomLivre', $NomLivre)->with('siteslivrechoisi', $siteslivrechoisi);
+    }
+
+
+    
+
     public function show(Request $request): View
     {
 

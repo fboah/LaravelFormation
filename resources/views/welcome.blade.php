@@ -80,9 +80,7 @@
                     <li class="label">Transactions</li>
                    
                     <li><a href="{{ url('/stock') }}"><i class="ti-package"></i> Stock</a></li>
-                   
                     <li><a href="{{ url('/achats') }}"><i class="ti-credit-card"></i> Achats Fourn</a></li>
-                  
                     <li><a href="{{ url('/ventes') }}"><i class="ti-agenda"></i> Ventes</a></li>
 
 
@@ -95,7 +93,7 @@
                         <li><a href="{{ url('/StatByAgence') }}" ><i class="ti-home"></i> Agences</a></li>
                         <li><a href="{{ url('/StatByLivre') }}" ><i class="ti-book"></i> Livres </a></li>
                         <li><a href="{{ url('/StatByAchat') }}" ><i class="ti-credit-card"></i> Achats </a></li>
-                      
+                        <li><a href="{{ url('/StatByVente') }}" ><i class="ti-agenda"></i> Ventes </a></li>
                       
                         </ul>
                     </li>

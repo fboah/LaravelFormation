@@ -2,28 +2,15 @@
 @section('contentwelcome')
 
 <div class="card">
-  <div class="card-header">Statistiques Achats</div>
+  <div class="card-header">Statistiques Ventes</div>
   <div class="card-body">
       
       <form action="{{ url('/achats') }}" >
         {!! csrf_field() !!}
-
-        
-        
-        <div class="col-lg-3">
-           
-        <label>Date Début Achat</label>
-        <input type="date" name="DateDebutAchat" id="DateDebutAchat" class="form-control" value="<?php echo date('Y-m-d'); ?>">
-
-        <label>Date Fin Achat</label>
-        <input type="date" name="DateFinAchat" id="DateFinAchat" class="form-control" value="<?php echo date('Y-m-d'); ?>">
-
-        <input type="submit" value="Visualiser" class="btn btn-success" onchange="updateChart(this)">
-
-        </div>
         
         <div class="form-group">
            
+
              <div class="row">
 
 
@@ -41,8 +28,8 @@
 
                                       function drawChart() {
                                         var data = google.visualization.arrayToDataTable([
-                                          ['Date', 'Nbre Achat'],
-                                          <?php echo $dataAchat;  ?> 
+                                          ['Date', 'Nbre Vente'],
+                                          <?php echo $dataVente;  ?> 
                                          
                                          // ['01/07/2008',1000],
                                          // ['02/09/2008',1170],
@@ -51,7 +38,7 @@
                                         ]);
 
                                         var options = {
-                                          title: 'les Achats Fournisseurs',
+                                          title: 'les Ventes',
                                           curveType: 'function',
                                           legend: { position: 'bottom' }
                                         };

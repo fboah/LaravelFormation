@@ -79,6 +79,9 @@ Route::resource("/stock", StockController::class);
 Route::resource("/ventes", VenteController::class);
 
 //Ramener les sites où se trouve le livre
+Route::get('/ventes/createfromstock/{id}',[VenteController::class,'createfromstock']);
+
+//Ramener les sites où se trouve le livre
 Route::get('/SiteByLivre/{id}',[StockController::class,'SiteByLivre']);
 
 //Ramener les qtité en fction du livre et du site
@@ -106,6 +109,10 @@ Route::get('/afficherAgenceByLivre/{id}',[StatistiquesController::class,'affiche
 
 //Statistiques Achats
 Route::get('/StatByAchat',[StatistiquesController::class,'afficherAchat']);
+
+//Statistiques Ventes
+Route::get('/StatByVente',[StatistiquesController::class,'afficherVente']);
+
 
 
 

@@ -259,13 +259,49 @@ class StatistiquesController extends Controller
       $StatAchat =DB::select('select achats.DateAchat,COUNT(achats.id) as NbreAchat
       from achats
       group by achats.DateAchat
-      order by achats.DateAchat desc');
+      order by achats.DateAchat ');
 
-         //dd($StockLivreSite);
+       //  dd($StatAchat);
 
-         return view('StatAchat.show')->with('StatAchat', $StatAchat);
+      $dataAchat="";
+      foreach($StatAchat as $val){
+       $dataAchat.="['".date('d-m-Y',strtotime($val->DateAchat))."',".$val->NbreAchat."],";
+      }
+     
+      //date('Y-m-d',strtotime(.DateAchat.))
+    
+
+       //  dd($AgenceStock);
+        
+         return view('StatAchat.show')->with('dataAchat', $dataAchat);
 
     }
+
+
+
+    public function afficherVente()
+    {
+      $StatVente =DB::select('select ventes.DateVente,COUNT(ventes.id) as NbreVente
+      from ventes
+      group by ventes.DateVente
+      order by ventes.DateVente ');
+
+       //  dd($StatAchat);
+
+      $dataVente="";
+      foreach($StatVente as $val){
+       $dataVente.="['".date('d-m-Y',strtotime($val->DateVente))."',".$val->NbreVente."],";
+      }
+      //date('Y-m-d',strtotime(.DateAchat.))
+    
+       //  dd($AgenceStock);
+        
+         return view('StatVente.show')->with('dataVente', $dataVente);
+
+    }
+
+
+    
 
 
 
