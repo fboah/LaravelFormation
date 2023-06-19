@@ -26,6 +26,7 @@ class StatistiquesController extends Controller
        //  return response()->json(['Titre' => $Titre,'QtiteStock' => $QtiteStock]);
 
         // return view('StatAuteur.show')->with($QtiteStock);
+        
 
     }
 
@@ -261,22 +262,100 @@ class StatistiquesController extends Controller
       group by achats.DateAchat
       order by achats.DateAchat ');
 
-       //  dd($StatAchat);
+      //   dd($StatAchat);
 
       $dataAchat="";
       foreach($StatAchat as $val){
-       $dataAchat.="['".date('d-m-Y',strtotime($val->DateAchat))."',".$val->NbreAchat."],";
+       $dataAchat.="['".date('d/m/Y',strtotime($val->DateAchat))."',".$val->NbreAchat."],";
       }
      
       //date('Y-m-d',strtotime(.DateAchat.))
     
-
-       //  dd($AgenceStock);
+       //  dd($dataAchat);
         
          return view('StatAchat.show')->with('dataAchat', $dataAchat);
 
     }
 
+    public function afficherAchatByDate(string $datedeb,string $datefin)
+    {
+
+////where achats.DateAchat>='.$datedeb.'  && achats.DateAchat<='.$datefin.' 
+     // $StatAchat =DB::select('select achats.DateAchat,COUNT(achats.id) as NbreAchat
+      //from achats   
+      //group by achats.DateAchat
+      //order by achats.DateAchat ');
+
+      $StatAchat = DB::table('achats')
+      ->select( 'achats.DateAchat',
+      DB::raw("(COUNT(achats.id)) as NbreAchat"))
+            ->whereDate('DateAchat', '>=', $datedeb)                                 
+            ->whereDate('DateAchat', '<=', $datefin) 
+            ->groupBy('achats.DateAchat')  
+      ->get();
+
+
+      $DateAchat=array();
+      $NbreAchat=array();
+        // dd($StatAchat);
+
+      $dataAchat="";
+      foreach($StatAchat as $val){
+      // $dataAchat.="['".date('d/m/Y',strtotime($val->DateAchat))."',".$val->NbreAchat."],";
+
+       $DateAchat[]=date('d/m/Y',strtotime($val->DateAchat));
+       $NbreAchat[]=$val->NbreAchat;
+
+      }
+     
+        // dd(['DateAchat' => $DateAchat,'NbreAchat' => $NbreAchat]);
+        
+       //  return view('StatAchat.show')->with('dataAchat', $dataAchat);
+
+         return response()->json(['DateAchat' => $DateAchat,'NbreAchat' => $NbreAchat]);
+
+    }
+    
+
+    public function afficherAchatByDateA(string $datedeb)
+    {
+
+////where achats.DateAchat>='.$datedeb.'  && achats.DateAchat<='.$datefin.' 
+     // $StatAchat =DB::select('select achats.DateAchat,COUNT(achats.id) as NbreAchat
+      //from achats   
+      //group by achats.DateAchat
+      //order by achats.DateAchat ');
+
+      $StatAchat = DB::table('achats')
+      ->select( 'achats.DateAchat',
+      DB::raw("(COUNT(achats.id)) as NbreAchat"))
+            ->whereDate('DateAchat', '>=', $datedeb)                                 
+            ->groupBy('achats.DateAchat')  
+      ->get();
+
+        // dd($StatAchat);
+
+      $DateAchat=array();
+      $NbreAchat=array();
+        // dd($StatAchat);
+
+      $dataAchat="";
+      foreach($StatAchat as $val){
+      // $dataAchat.="['".date('d/m/Y',strtotime($val->DateAchat))."',".$val->NbreAchat."],";
+
+       $DateAchat[]=date('d/m/Y',strtotime($val->DateAchat));
+       $NbreAchat[]=$val->NbreAchat;
+
+      }
+
+        // dd(['DateAchat' => $DateAchat,'NbreAchat' => $NbreAchat]);
+        
+       //  return view('StatAchat.show')->with('dataAchat', $dataAchat);
+
+         return response()->json(['DateAchat' => $DateAchat,'NbreAchat' => $NbreAchat]);
+
+    }
+    
 
 
     public function afficherVente()
@@ -290,7 +369,7 @@ class StatistiquesController extends Controller
 
       $dataVente="";
       foreach($StatVente as $val){
-       $dataVente.="['".date('d-m-Y',strtotime($val->DateVente))."',".$val->NbreVente."],";
+       $dataVente.="['".date('d/m/Y',strtotime($val->DateVente))."',".$val->NbreVente."],";
       }
       //date('Y-m-d',strtotime(.DateAchat.))
     
@@ -299,6 +378,47 @@ class StatistiquesController extends Controller
          return view('StatVente.show')->with('dataVente', $dataVente);
 
     }
+
+
+    public function afficherVenteByDate(string $datedeb,string $datefin)
+    {
+
+////where achats.DateAchat>='.$datedeb.'  && achats.DateAchat<='.$datefin.' 
+     // $StatAchat =DB::select('select achats.DateAchat,COUNT(achats.id) as NbreAchat
+      //from achats   
+      //group by achats.DateAchat
+      //order by achats.DateAchat ');
+
+      $StatVente = DB::table('ventes')
+      ->select( 'ventes.DateVente',
+      DB::raw("(COUNT(ventes.id)) as NbreVente"))
+            ->whereDate('DateVente', '>=', $datedeb)                                 
+            ->whereDate('DateVente', '<=', $datefin) 
+            ->groupBy('ventes.DateVente')  
+      ->get();
+
+
+      $DateVente=array();
+      $NbreVente=array();
+        // dd($StatAchat);
+
+      $dataAchat="";
+      foreach($StatVente as $val){
+      // $dataAchat.="['".date('d/m/Y',strtotime($val->DateAchat))."',".$val->NbreAchat."],";
+
+       $DateVente[]=date('d/m/Y',strtotime($val->DateVente));
+       $NbreVente[]=$val->NbreVente;
+
+      }
+     
+        // dd(['DateAchat' => $DateAchat,'NbreAchat' => $NbreAchat]);
+        
+       //  return view('StatAchat.show')->with('dataAchat', $dataAchat);
+
+         return response()->json(['DateVente' => $DateVente,'NbreVente' => $NbreVente]);
+
+    }
+    
 
 
     

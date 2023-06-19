@@ -32,16 +32,16 @@ class HightChartController extends Controller
        //Les auteurs
        $auteurscount = DB::table('auteurs')
        ->select('auteurs.id as id','auteurs.Nom','auteurs.Prenom', 
-             \DB::Raw("Count(livres.id) as Qtite"))
-       ->leftJoin('livres', 'livres.IdAuteur', '=', 'auteurs.id')
+             \DB::Raw("SUM(ventes.Quantite) as Qtite"))
+             ->leftJoin('livres', 'livres.IdAuteur', '=', 'auteurs.id')
+             ->leftJoin('ventes', 'livres.id', '=', 'ventes.IdLivre')
        ->orderby('Qtite','desc')
        ->groupby('id','Nom','Prenom')
        ->havingRaw('Qtite >  0')
        ->limit(5)
        ->get();
 
-       
-
+      
       $dataAut="";
       foreach($auteurscount as $val){
        $dataAut.="['".$val->Prenom."  ".$val->Nom."',".$val->Qtite."],";

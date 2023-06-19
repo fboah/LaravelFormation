@@ -109,7 +109,8 @@ class StockController extends Controller
          (select ventes.IdLivre,livres.Titre,(sum(IFNULL(ventes.Quantite,0)))as QtiteVente
          from ventes 
          left Join livres ON livres.id=ventes.IdLivre 
-         group By ventes.IdLivre,livres.Titre)B on A.IdLivre=B.IdLivre order by A.Titre ');
+         group By ventes.IdLivre,livres.Titre)B on A.IdLivre=B.IdLivre 
+         where( (IFNULL(A.QtiteAchat,0)-IFNULL(B.QtiteVente,0))>0) order by A.Titre');
 
          return view ('stock.index')->with('Listeachats', $Listeachats);
 

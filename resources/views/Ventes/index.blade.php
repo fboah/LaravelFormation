@@ -22,8 +22,7 @@
                                         <th>Date Vente</th>
                                         <th>Livre</th>
                                         <th>Auteur</th>
-                                        <th>Quantité</th>
-                                        <th>Num Facture</th>
+                                        <th>Quantité</th>            
                                         <th>Site</th>
                                         <th>Actions</th>
                                      
@@ -37,10 +36,9 @@
                                         <td>{{ $item->Titre }}</td>
                                         <td>{{ $item->Prenom }} {{ $item->Nom }}</td>
                                         <td>{{ $item->Quantite }}</td>
-                                        <td>{{ $item->NumFacture }}</td>
+                                       
                                         <td>{{ $item->LibelleSite }}</td>
                                       
- 
                                         <td>
                                           
                                             <a href="{{ url('/ventes/' . $item->id . '/edit') }}" title="Modifier Vente"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </button></a>

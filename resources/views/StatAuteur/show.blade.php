@@ -20,7 +20,6 @@
 
              <div class="row">
 
-
              <div class="col-lg-6">
                             <div class="card">
 
@@ -109,7 +108,6 @@
 
                      //Obtenir les agences de l'auteur=====================
 
-                     
                      $.ajax({
                       type:"GET",
                       url:"/afficherAgenceByAuteur/"+id,
@@ -145,12 +143,8 @@
                    })
 
 
-
-
-
                 }
               
-               
                 </script>
                         
                         </div>

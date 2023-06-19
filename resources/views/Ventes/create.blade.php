@@ -43,7 +43,8 @@
         <label>Num. Facture</label>
         <input type="text" name="NumFacture" id="NumFacture" class="form-control">
         
-        
+
+
         <input type="submit" value="Enregistrer" class="btn btn-success">
 
         <a href="{{ url('/ventes') }}" class="btn btn-danger" role="button" aria-pressed="true">Annuler</a>

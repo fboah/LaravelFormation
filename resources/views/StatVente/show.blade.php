@@ -5,56 +5,106 @@
   <div class="card-header">Statistiques Ventes</div>
   <div class="card-body">
       
-      <form action="{{ url('/achats') }}" >
+  <form >
         {!! csrf_field() !!}
+
+        
+        <div class="col-lg-3">
+      
+        <label>Date Début Vente</label>
+        <input type="date" name="DateDebutVente" id="DateDebutVente" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+
+        <label>Date Fin Vente</label>
+        <input type="date" name="DateFinVente" id="DateFinVente" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+
+        <input  value="Visualiser" class="btn btn-success" onclick="updateChart(this)">
+     
+        </div>
         
         <div class="form-group">
            
-
              <div class="row">
-
 
              <div class="col-lg-12">
                             <div class="card">
-
                                 <div class="card-body">
 
-                                <html>
-                                  <head>
-                                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                                    <script type="text/javascript">
-                                      google.charts.load('current', {'packages':['corechart']});
-                                      google.charts.setOnLoadCallback(drawChart);
+               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-                                      function drawChart() {
-                                        var data = google.visualization.arrayToDataTable([
-                                          ['Date', 'Nbre Vente'],
-                                          <?php echo $dataVente;  ?> 
-                                         
-                                         // ['01/07/2008',1000],
-                                         // ['02/09/2008',1170],
-                                         // ['12/09/2010',660],
-                                        //  ['22/03/2012',1030]
-                                        ]);
+              <div>
+              <canvas id="chartId"></canvas>
+              </div>
 
-                                        var options = {
-                                          title: 'les Ventes',
-                                          curveType: 'function',
-                                          legend: { position: 'bottom' }
-                                        };
+              <script>
+              
+              $TitreAgence=array();
+                $QtiteAgence=array();
+              function updateChart(option)
+              {
+               
+                let chartStatus = Chart.getChart("chartId"); // <canvas> id
+                  if (chartStatus != undefined) {
+                    chartStatus.destroy();
+                  }
 
-                                        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                
+               // const DateDebutAchatN=document.getElementById('DateDebutAchat');
+                //  console.log(DateDebutAchatN); 
+              //  const DateDebutFinN=document.getElementById('DateDebutFin');
 
-                                        chart.draw(data, options);
-                                      }
-                                    </script>
-                                  </head>
-                                  <body>
-                                    <div id="curve_chart" style="width: 1000px; height: 500px"></div>
-                                  </body>
-                                </html>
+              var DateDebut=DateDebutVente.value;
+              var DateFin=DateFinVente.value;
+                // console.log(DateDe); 
+//                var DateDebutAchat=DateDebutAchatN.value;
+               // var DateDebutFin=DateDebutFinN.value;
+                 
+               // console.log(DateDebutAchat); 
+               
 
-                        
+                  $.ajax({
+                      type:"GET",
+                     // url:"/StatByAchat/"+DateDebut,
+                      url:"/StatByVente/"+DateDebut+"/"+DateFin,
+                       dataType:"json",
+                      success:function(data){
+
+                      //  console.log(data);
+                        $TitreAgence=data.DateVente;
+                         $QtiteAgence=data.NbreVente;
+                      
+                      var chrt = document.getElementById("chartId");//.getContext("2d");
+                       var chartId = new Chart(chrt, {
+                        type: 'line',
+                        data: {
+                   // labels: ["HTML", "CSS", "JAVASCRIPT", "CHART.JS", "JQUERY", "BOOTSTRP"],
+                      labels:  $TitreAgence,
+                      datasets: [{
+                        label: "Nbre de ventes",
+                        data:  $QtiteAgence,
+                       //  data: [20, 40, 30, 35, 30, 20],
+                       // backgroundColor: ['blue'],
+                      // borderColor:'rgb(255, 99, 132)',
+                       borderColor:'blue',
+                       
+                        // borderColor: ['red', 'blue', 'fuchsia', 'green', 'navy', 'black'],
+                        borderWidth: 5,
+                              }],
+                          },
+                          options: {
+                              responsive: true,
+                          },
+                        });
+    
+                       },
+                      error:function(error){
+                        console.log(data);
+                       }
+                   })
+
+              }
+
+          </script>
+        
                         </div>
               </div>
   

@@ -109,9 +109,12 @@ Route::get('/afficherAgenceByLivre/{id}',[StatistiquesController::class,'affiche
 
 //Statistiques Achats
 Route::get('/StatByAchat',[StatistiquesController::class,'afficherAchat']);
+Route::get('/StatByAchat/{datedeb}/{datefin}',[StatistiquesController::class,'afficherAchatByDate']);
+//Route::get('/StatByAchat/{datedeb}',[StatistiquesController::class,'afficherAchatByDate']);
 
 //Statistiques Ventes
 Route::get('/StatByVente',[StatistiquesController::class,'afficherVente']);
+Route::get('/StatByVente/{datedeb}/{datefin}',[StatistiquesController::class,'afficherVenteByDate']);
 
 
 

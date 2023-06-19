@@ -18,8 +18,7 @@
                 @foreach($fournisseurs as $item)
                 <option id="IdFournisseur" value="{{$item->id}}">{{$item->Libelle}}</option>
                 @endforeach
-             </select>
-
+            </select>
         </div>
 
         <div class="form-group">
@@ -29,7 +28,6 @@
                 <option id="IdLivre" value="{{$item->id}}">{{$item->Titre}}</option>
                 @endforeach
              </select>
-
         </div>
 
         <label>Quantité</label>
@@ -42,15 +40,14 @@
         <div class="form-group">
             <label for="exampleFormControlSelect1">Site Livraison</label>
             <select class="form-control" name="IdSite">
+            <option id="IdSite" value="0">Choisir une agence</option>
                 @foreach($sites as $item)
                 <option id="IdSite" value="{{$item->id}}">{{$item->Libelle}}</option>
                 @endforeach
              </select>
-
         </div>
 
 
-        
         <input type="submit" value="Enregistrer" class="btn btn-success">
 
         <a href="{{ url('/achats') }}" class="btn btn-danger" role="button" aria-pressed="true">Annuler</a>

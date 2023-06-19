@@ -173,7 +173,7 @@
                                             ]);
 
                                             var options = {
-                                            title: 'Le Top 5 des Auteurs les plus prolifiques',
+                                            title: 'Le Top 5 des Auteurs les plus vendus',
                                             is3D:'true'
                                             };
 
